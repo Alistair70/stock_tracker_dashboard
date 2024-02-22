@@ -1,7 +1,9 @@
 document.getElementById("logout").addEventListener("click", function() {
     cookie_name = "stock_tracker_cookie_container"
-    document.cookie = `${cookie_name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    window.location.href = '/';
+    const now = new Date();
+    const expirationTime = new Date(now.getTime() - 15 * 60 * 1000);
+    document.cookie = `${cookie_name}=; domain=.expense-tracker-demo.site; expires=${expirationTime.toUTCString()}; path=/`;
+    window.location.href = "https://stock-tracker-landing.expense-tracker-demo.site";
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -13,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 encoded_id = getEncodedID_or_Landing();
 
 function get_stock_data() {
-    fetch('/get_stock_data', {
+    fetch('https://stock-tracker-l64w.onrender.com/get_stock_data', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -79,5 +81,5 @@ function getEncodedID_or_Landing() {
             return value;
         }
     }
-    location.href = '/';
+    location.href = 'https://stock-tracker-landing.expense-tracker-demo.site';
 }
