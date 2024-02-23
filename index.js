@@ -1,3 +1,7 @@
+document.getElementById("toSearch").addEventListener("click", function() {
+    window.location.href = "https://stock-tracker-search.expense-tracker-demo.site";
+});
+
 document.getElementById("logout").addEventListener("click", function() {
     cookie_name = "stock_tracker_cookie_container"
     const now = new Date();
