@@ -28,7 +28,6 @@ function get_stock_data() {
     })
     .then(response => response.json())
     .then(stock_data => {
-        console.log(stock_data)
         // Create a container div for the charts
         const chartContainer = document.getElementById('graphs');
 
